@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormaForge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+      <!-- ✅ Font Awesome (Defer loading icons) -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
+
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <nav class="navbar">
+        <div class="left-section">
+            <h1 class="logo">FormaForge</h1>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Products <i class="fa-solid fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Courses</a>
+                        <a href="#">3D Models</a>
+                        <a href="#">3D Printing</a>
+                    </div>
+                </li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        
+        <div class="right-section">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            
+            <!-- User Profile -->
+            <div class="user-profile">
+                <img src="https://placehold.co/40x40/FF9900/FFFFFF?text=F" onerror="this.onerror=null; this.src='https://placehold.co/40x40/FF9900/FFFFFF?text=J';" alt="User Profile Placeholder">
+                <span>Firoz Khan</span>
+            </div>
+
+            <!-- Tooltip Menu -->
+            <div class="tooltip">
+                <button class="tooltip-button">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12C12.5523 12 13 12.4477 13 13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13C11 12.4477 11.4477 12 12 12Z" fill="#c0c0c0" stroke="#c0c0c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 5C12.5523 5 13 5.44772 13 6C13 6.55228 12.5523 7 12 7C11.4477 7 11 6.55228 11 6C11 5.44772 11.4477 5 12 5Z" fill="#c0c0c0" stroke="#c0c0c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 19C12.5523 19 13 19.4477 13 20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20C11 19.4477 11.4477 19 12 19Z" fill="#c0c0c0" stroke="#c0c0c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="tooltip-content">
+                    <a href="#">Settings</a>
+                    <a href="#">Help</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hamburger Menu for Mobile (hidden on desktop) -->
+        <button class="menu-icon">
+            <span class="hamburger-lines"></span>
+            <span class="hamburger-lines"></span>
+            <span class="hamburger-lines"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="mobile-header">
+            <!-- Search Bar for Mobile -->
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <!-- User Profile for Mobile -->
+            <div class="user-profile">
+                <img src="https://placehold.co/40x40/FF9900/FFFFFF?text=F" onerror="this.onerror=null; this.src='https://placehold.co/40x40/FF9900/FFFFFF?text=J';" alt="User Profile Placeholder">
+            </div>
+        </div>
+        
+        <ul class="mobile-nav-links">
+            <li><a href="#">Home</a></li>
+            <li class="dropdown-mobile-li">
+                <p class="products-link-mobile">Products <span class="arrow"><i class="fa-solid fa-caret-down"></i></span></p>
+                <div class="dropdown-content-mobile">
+                    <a href="#">Courses</a>
+                    <a href="#">3D Models</a>
+                    <a href="#">3D Printing</a>
+                </div>
+            </li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <div style="border-top: 1px solid #3b3b3b; margin: 10px 0;"></div> <!-- Separator -->
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+    
+     <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="slider-container">
+            <!-- Slides -->
+            <div class="slide active" style="background-image: url('assets/img/hero-slider-1.png');"></div>
+            <div class="slide" style="background-image: url('assets/img/hero-slider-2.webp');"></div>
+            <div class="slide" style="background-image: url('assets/img/hero-slider-3.jpg');"></div>
+        </div>
+
+        <div class="hero-content-wrapper">
+            <div class="hero-content">
+                <p class="hero-subtitle">SHAPING DIGITAL REALITIES</p>
+                <h1 class="hero-title">Crafting the Future,<br>One Polygon at a Time.</h1>
+                <p class="hero-description">From conceptual design to physical reality, we provide everything you need to bring your 3D ideas to life.</p>
+                <a href="#" class="hero-cta-button">EXPLORE OUR WORLD</a>
+            </div>
+
+            <div class="ad-card">
+                <h3>Most Demanded Course</h3>
+                <img src="assets/img/studio.jpg" alt="Most Demanded Course Ad">
+                <p>Master the fundamentals of 3D modeling and start creating today!</p>
+                <a href="#" class="ad-card-button">Enroll Now</a>
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="slider-arrow prev-arrow">&#10094;</button>
+        <button class="slider-arrow next-arrow">&#10095;</button>
+
+
+
+        <!-- Pagination Dots -->
+        <div class="slider-dots">
+            <span class="dot active" data-slide-index="0"></span>
+            <span class="dot" data-slide-index="1"></span>
+            <span class="dot" data-slide-index="2"></span>
+        </div>
+    </section>
+
+
+
+    <!-- Overview Section -->
+    <section class="overview-section">
+        <h2 class="section-heading">Your Creative Journey Starts Here</h2>
+        <p class="section-subheading">From learning the basics to bringing your creations to life, FormaForge provides the tools and expertise you need.</p>
+        
+        <div class="card-container">
+            <!-- Card 1: Courses -->
+            <div class="card">
+                <i class="fas fa-book-open card-icon"></i>
+                <h3 class="card-title">Learn 3D Courses</h3>
+                <p class="card-description">Master 3D modeling, animation, and rendering with our comprehensive, beginner-friendly video courses taught by industry experts.</p>
+                <a href="#" class="card-button">Explore Courses</a>
+            </div>
+            
+            <!-- Card 2: Models -->
+            <div class="card">
+                <i class="fas fa-cube card-icon"></i>
+                <h3 class="card-title">Download 3D Models</h3>
+                <p class="card-description">Access a vast library of ready-to-use 3D models for all your projects, from architectural designs to custom characters and assets.</p>
+                <a href="#" class="card-button">Browse Models</a>
+            </div>
+            
+            <!-- Card 3: 3D Printing -->
+            <div class="card">
+                <i class="fas fa-print card-icon"></i>
+                <h3 class="card-title">3D Printing Services</h3>
+                <p class="card-description">Turn your digital creations into physical components. We offer high-quality 3D printing services for prototypes, parts, and custom projects.</p>
+                <a href="#" class="card-button">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+
+
+ 
+
+
+        <!-- Featured Models & Courses Section -->
+    <section class="featured-section">
+        <h2 class="section-heading">Featured Models & Courses</h2>
+        <p class="section-subheading">Check out our most popular 3D models and highly-rated courses.</p>
+        
+        <div class="product-grid">
+            <!-- Featured Card 1: Course -->
+            <div class="product-card">
+                <img src="https://placehold.co/600x400/ff9900/121212?text=Blender+Course" alt="Blender for Beginners Course" class="product-card-image">
+                <div class="product-card-content">
+                    <h3 class="product-card-title">Blender for Beginners</h3>
+                    <p class="product-card-description">A comprehensive course to master the fundamentals of Blender for 3D modeling and animation.</p>
+                    <div class="product-card-footer">
+                        <span class="product-card-price">$49.99</span>
+                        <a href="#" class="product-card-button">View Course</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Card 2: Model -->
+            <div class="product-card">
+                <img src="https://placehold.co/600x400/6A5ACD/121212?text=Modern+Chair+Model" alt="Modern Chair 3D Model" class="product-card-image">
+                <div class="product-card-content">
+                    <h3 class="product-card-title">Modern Chair 3D Model</h3>
+                    <p class="product-card-description">A high-quality, photorealistic 3D model of a modern chair, perfect for architectural visualization.</p>
+                    <div class="product-card-footer">
+                        <span class="product-card-price">$19.99</span>
+                        <a href="#" class="product-card-button">Buy Model</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Card 3: Course -->
+            <div class="product-card">
+                <img src="https://placehold.co/600x400/008080/121212?text=ZBrush+Sculpting" alt="ZBrush Digital Sculpting Course" class="product-card-image">
+                <div class="product-card-content">
+                    <h3 class="product-card-title">ZBrush Digital Sculpting</h3>
+                    <p class="product-card-description">Learn to create stunning organic models and characters using ZBrush, a powerful digital sculpting tool.</p>
+                    <div class="product-card-footer">
+                        <span class="product-card-price">$69.99</span>
+                        <a href="#" class="product-card-button">View Course</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Card 4: Model -->
+            <div class="product-card">
+                <img src="https://placehold.co/600x400/808080/121212?text=Sci-Fi+Helmet+Model" alt="Sci-Fi Helmet 3D Model" class="product-card-image">
+                <div class="product-card-content">
+                    <h3 class="product-card-title">Sci-Fi Helmet 3D Model</h3>
+                    <p class="product-card-description">A detailed sci-fi helmet model with intricate details, optimized for games and cinematic rendering.</p>
+                    <div class="product-card-footer">
+                        <span class="product-card-price">$24.99</span>
+                        <a href="#" class="product-card-button">Buy Model</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="testimonials-section">
+        <h2 class="section-heading">Don't just take our word for it!</h2>
+        <p class="section-subheading">Hear from the artists, designers, and engineers who trust FormaForge to bring their visions to life.</p>
+        
+        <div class="testim-cover">
+                <div class="wrap">
+    
+                    <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
+                    <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
+                    <ul id="testim-dots" class="dots">
+                        <li class="dot active"></li><!--
+                        --><li class="dot"></li><!--
+                        --><li class="dot"></li><!--
+                        --><li class="dot"></li><!--
+                        --><li class="dot"></li>
+                    </ul>
+                    <div id="testim-content" class="cont">
+                        
+                        <div class="active">
+                            <div class="img"><img src="assets/img/user-1.png" alt=""></div>
+                            <h2>Lorem P. Ipsum</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>                    
+                        </div>
+    
+                        <div>
+                            <div class="img"><img src="assets/img/user-2.png" alt=""></div>
+                            <h2>Mr. Lorem Ipsum</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>                    
+                        </div>
+    
+                        <div>
+                            <div class="img"><img src="assets/img/user-3.png" alt=""></div>
+                            <h2>Lorem Ipsum</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>                    
+                        </div>
+    
+                        <div>
+                            <div class="img"><img src="assets/img/user-4.jpg" alt=""></div>
+                            <h2>Lorem De Ipsum</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>                    
+                        </div>
+    
+                        <div>
+                            <div class="img"><img src="assets/img/user-1.png" alt=""></div>
+                            <h2>Ms. Lorem R. Ipsum</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>                    
+                        </div>
+    
+                    </div>
+    
+                </div>
+             </div>
+
+    </section>
+    
+
+    <script>var	testim = document.getElementById("testim"),
+		testimDots = Array.prototype.slice.call(document.getElementById("testim-dots").children),
+    testimContent = Array.prototype.slice.call(document.getElementById("testim-content").children),
+    testimLeftArrow = document.getElementById("left-arrow"),
+    testimRightArrow = document.getElementById("right-arrow"),
+    testimSpeed = 4500,
+    currentSlide = 0,
+    currentActive = 0,
+    testimTimer,
+		touchStartPos,
+		touchEndPos,
+		touchPosDiff,
+		ignoreTouch = 30;
+;
+
+window.onload = function() {
+
+    // Testim Script
+    function playSlide(slide) {
+        for (var k = 0; k < testimDots.length; k++) {
+            testimContent[k].classList.remove("active");
+            testimContent[k].classList.remove("inactive");
+            testimDots[k].classList.remove("active");
+        }
+
+        if (slide < 0) {
+            slide = currentSlide = testimContent.length-1;
+        }
+
+        if (slide > testimContent.length - 1) {
+            slide = currentSlide = 0;
+        }
+
+        if (currentActive != currentSlide) {
+            testimContent[currentActive].classList.add("inactive");            
+        }
+        testimContent[slide].classList.add("active");
+        testimDots[slide].classList.add("active");
+
+        currentActive = currentSlide;
+    
+        clearTimeout(testimTimer);
+        testimTimer = setTimeout(function() {
+            playSlide(currentSlide += 1);
+        }, testimSpeed)
+    }
+
+    testimLeftArrow.addEventListener("click", function() {
+        playSlide(currentSlide -= 1);
+    })
+
+    testimRightArrow.addEventListener("click", function() {
+        playSlide(currentSlide += 1);
+    })    
+
+    for (var l = 0; l < testimDots.length; l++) {
+        testimDots[l].addEventListener("click", function() {
+            playSlide(currentSlide = testimDots.indexOf(this));
+        })
+    }
+
+    playSlide(currentSlide);
+
+    // keyboard shortcuts
+    document.addEventListener("keyup", function(e) {
+        switch (e.keyCode) {
+            case 37:
+                testimLeftArrow.click();
+                break;
+                
+            case 39:
+                testimRightArrow.click();
+                break;
+
+            case 39:
+                testimRightArrow.click();
+                break;
+
+            default:
+                break;
+        }
+    })
+		
+		testim.addEventListener("touchstart", function(e) {
+				touchStartPos = e.changedTouches[0].clientX;
+		})
+	
+		testim.addEventListener("touchend", function(e) {
+				touchEndPos = e.changedTouches[0].clientX;
+			
+				touchPosDiff = touchStartPos - touchEndPos;
+			
+				console.log(touchPosDiff);
+				console.log(touchStartPos);	
+				console.log(touchEndPos);	
+
+			
+				if (touchPosDiff > 0 + ignoreTouch) {
+						testimLeftArrow.click();
+				} else if (touchPosDiff < 0 - ignoreTouch) {
+						testimRightArrow.click();
+				} else {
+					return;
+				}
+			
+		})
+}</script>
+
+
+
+
+ <!-- Contact Section -->
+    <section class="contact-section">
+        <h2 class="section-heading">Get in Touch</h2>
+        <p class="section-subheading">Have a question, a project idea, or just want to say hello? Fill out the form below and we'll get back to you as soon as possible.</p>
+        
+        <div class="contact-container">
+            <div class="contact-details-and-form">
+                <!-- Contact Details -->
+                <div class="contact-details">
+                    <h3>Contact Information</h3>
+                    <p>We are here to help and answer any questions you may have. We look forward to hearing from you.</p>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 FormaForge St., Digital City, 10001</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@formaforge.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (123) 456-7890</span>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <form class="contact-form" action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <!-- <i class="fas fa-map"></i> Map Placeholder -->
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112306.04066828245!2d77.23667287695959!3d28.402240857979425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdc15f5a424b1%3A0xe4f50576c850e0f2!2sFaridabad%2C%20Haryana!5e0!3m2!1sen!2sin!4v1755694047885!5m2!1sen!2sin" style="border:0; width: 100%; height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+     <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-heading">Frequently Asked Questions</h2>
+        <p class="section-subheading">We've gathered some of the most common questions to help you get started quickly and find the information you need.</p>
+
+        <div class="faq-content-wrapper">
+            <div class="accordion-container">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-title">What software do I need for the courses?</span>
+                        <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Our courses primarily use industry-standard free software like Blender. We'll provide links to download any necessary programs, so you don't have to worry about additional costs.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-title">How do I purchase and download 3D models?</span>
+                        <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>After selecting a model, you can add it to your cart and complete your purchase securely. The download link for the model file will be immediately available in your account dashboard and sent to your email address.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-title">What materials can you 3D print with?</span>
+                        <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We support a wide range of materials, including PLA, ABS, PETG, and resins. When you submit your 3D model for a quote, you can specify your preferred material, and we'll provide an accurate price estimate.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-title">Do you offer a refund policy?</span>
+                        <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, we offer a 30-day money-back guarantee on all our courses. For 3D models and printing services, refunds are evaluated on a case-by-case basis. Please refer to our full terms and conditions for details.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-title">Do you offer a refund policy?</span>
+                        <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, we offer a 30-day money-back guarantee on all our courses. For 3D models and printing services, refunds are evaluated on a case-by-case basis. Please refer to our full terms and conditions for details.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Container -->
+            <div class="faq-image-container">
+                <img src="assets/img/studio.jpg" alt="3D Model Preview">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const content = header.nextElementSibling;
+                    
+                    // Toggle the active state
+                    item.classList.toggle('active');
+                    
+                    // Toggle the content visibility
+                    if (item.classList.contains('active')) {
+                        content.classList.add('open');
+                    } else {
+                        content.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+<!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+
+<!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <!-- About Us Column -->
+            <div class="footer-column">
+                <h3 class="footer-logo">FormaForge</h3>
+                <p class="footer-about">We are your one-stop solution for 3D courses, models, and printing services. Empowering creators to bring their visions to life.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <!-- Quick Links Column -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Models</a></li>
+                    <li><a href="#">3D Printing</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <!-- Services Column -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Services</h4>
+                <ul class="footer-nav">
+                    <li><a href="#">Blender Courses</a></li>
+                    <li><a href="#">ZBrush Tutorials</a></li>
+                    <li><a href="#">Architectural Models</a></li>
+                    <li><a href="#">Prototyping</a></li>
+                    <li><a href="#">Custom Orders</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Contact Us</h4>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> <a href="#">123 FormaForge St., Digital City, 10001</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:support@formaforge.com">support@formaforge.com</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+11234567890">+1 (123) 456-7890</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            &copy; 2024 FormaForge. All rights reserved. designed by <a style="text-decoration: none; color: var(--primary-color);" href="https://firozkportfolio.netlify.app/">Firoz Khan</a>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
