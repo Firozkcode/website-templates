@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Director Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Basic Reset & Body Styling --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- Hero Section & Layout --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/img/image (10).jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            z-index: 0;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* --- Interactive Grid Styling (No Changes) --- */
+        #hero-grid-container {
+            display: grid;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .grid-square {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: background-color 0.8s ease-out, border-color 0.8s ease-out, box-shadow 0.8s ease-out;
+        }
+
+        .grid-square.glow {
+            /* background-color: rgba(234, 88, 12, 0.3); */
+            border-color: rgba(255, 98, 0, 0.979);
+            /* box-shadow: 0 0 15px rgba(234, 88, 12, 0.6); */
+            transition: background-color 0.1s ease-in, border-color 0.1s ease-in, box-shadow 0.1s ease-in;
+        }
+
+        /* --- Content Styling --- */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 56rem; /* 896px */
+            padding-left: 1.5rem; /* 24px */
+            padding-right: 1.5rem; /* 24px */
+        }
+
+        .hero-content h1 {
+            font-size: 2.25rem; /* 36px */
+            line-height: 2.5rem; /* 40px */
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem; /* 16px */
+        }
+
+        .outline-heading{
+          font: 900 64px/1.1 "Poppins", system-ui, sans-serif;
+          letter-spacing: .5px;
+          /* no fill */
+          color: transparent;
+                
+          /* the outline */
+          -webkit-text-stroke: 2px #1abc9c;   /* Chrome / Edge / Safari */
+          text-stroke: 2px #1abc9c;           /* future/unprefixed */
+                
+          /* optional styling */
+          text-transform: uppercase;
+        }
+
+
+        .hero-content p {
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.75rem; /* 28px */
+            color: #d1d5db; /* text-gray-300 */
+            max-width: 42rem; /* 672px */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2rem; /* 32px */
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.75rem 2rem; /* 12px 32px */
+            border-radius: 0.5rem; /* 8px */
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (min-width: 768px) {
+            .hero-content h1 {
+                font-size: 3.75rem; /* 60px */
+                line-height: 1;
+            }
+            .hero-content p {
+                font-size: 1.25rem; /* 20px */
+                line-height: 1.75rem; /* 28px */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        
+        <!-- Background Image -->
+        <div class="hero-background"></div>
+
+        <!-- Dark Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- The interactive grid is generated by JavaScript and placed here -->
+        <div id="hero-grid-container"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+           <h1 class="outline-heading">Outline Heading</h1>
+
+            <p>
+                A premier real estate director dedicated to curating exceptional properties and delivering unparalleled client experiences in the luxury market.
+            </p>
+            <a href="#portfolio" class="cta-button">
+                Explore Properties
+            </a>
+        </div>
+    </section>
+
+    <script>
+        const gridContainer = document.getElementById('hero-grid-container');
+        const squareSize = 30; // Size of each square in pixels. Try changing this!
+
+        function createGrid() {
+            // Clear any existing grid
+            gridContainer.innerHTML = '';
+
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            
+            // Calculate number of columns and rows needed to fill the screen
+            const cols = Math.ceil(screenWidth / squareSize);
+            const rows = Math.ceil(screenHeight / squareSize);
+            const totalSquares = cols * rows;
+
+            // Set grid template columns using the calculated number of columns
+            gridContainer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+
+            // Create and append squares to the grid
+            for (let i = 0; i < totalSquares; i++) {
+                const square = document.createElement('div');
+                square.classList.add('grid-square');
+                gridContainer.appendChild(square);
+            }
+        }
+
+        // Add event listener for mouse movement on the entire grid container
+        gridContainer.addEventListener('mouseover', (event) => {
+            // Check if the hovered element is a grid square
+            if (event.target.classList.contains('grid-square')) {
+                const square = event.target;
+                
+                // Add the glow class immediately
+                square.classList.add('glow');
+
+                // Set a timeout to remove the glow class after 800ms (0.8s)
+                // This creates the fading trail effect
+                setTimeout(() => {
+                    square.classList.remove('glow');
+                }, 800);
+            }
+        });
+        
+        // Re-create the grid when the window is resized
+        window.addEventListener('resize', createGrid);
+
+        // Initial grid creation on page load
+        createGrid();
+    </script>
+
+</body>
+</html>
+

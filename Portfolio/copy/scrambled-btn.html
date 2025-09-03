@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glitch Button</title>
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+    }
+    button {
+      font-size: 24px;
+      padding: 15px 40px;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 8px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #fff;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+  <button id="glitchBtn">Hover Me</button>
+
+  <script>
+    const btn = document.getElementById("glitchBtn");
+    const originalText = btn.textContent;
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*";
+
+    btn.addEventListener("mouseenter", () => {
+      let scrambleInterval = setInterval(() => {
+        btn.textContent = originalText
+          .split("")
+          .map(() => chars[Math.floor(Math.random() * chars.length)])
+          .join("");
+      }, 50);
+
+      setTimeout(() => {
+        clearInterval(scrambleInterval);
+        btn.textContent = originalText;
+      }, 400); // back to normal after 0.5s
+    });
+  </script>
+</body>
+</html>

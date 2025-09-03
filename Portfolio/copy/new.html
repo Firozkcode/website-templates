@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Scroll Sections</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    .masked-img {
+      width: 400px;
+      height: 300px;
+
+      /* Background image (jo visible hoga mask ke through) */
+      background: url('assets/img/hero-bg.jpeg') center/cover no-repeat;
+
+      /* Mask image (jo shape banayega) */
+      -webkit-mask-image: url('assets/img/masked-image.avif');
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      -webkit-mask-size: cover;
+
+      mask-image: url('assets/img/masked-image.avif');
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: cover;
+}
+
+    
+  </style>
+</head>
+<body>
+  <div class="masked-img"></div>
+</body>
+</html>

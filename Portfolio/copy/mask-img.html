@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Director Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Basic Reset & Body Styling --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- Hero Section & Layout --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* --- Interactive Grid Styling (No Changes) --- */
+        #hero-grid-container {
+            display: grid;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .grid-square {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: background-color 0.8s ease-out, border-color 0.8s ease-out, box-shadow 0.8s ease-out;
+        }
+
+        .grid-square.glow {
+            background-color: rgba(234, 88, 12, 0.3);
+            border-color: rgba(234, 88, 12, 0.8);
+            box-shadow: 0 0 15px rgba(234, 88, 12, 0.6);
+            transition: background-color 0.1s ease-in, border-color 0.1s ease-in, box-shadow 0.1s ease-in;
+        }
+
+        /* --- Content Styling --- */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 56rem; /* 896px */
+            padding-left: 1.5rem; /* 24px */
+            padding-right: 1.5rem; /* 24px */
+        }
+
+        .hero-content h1 {
+            font-size: 2.25rem; /* 36px */
+            line-height: 2.5rem; /* 40px */
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem; /* 16px */
+        }
+
+        .hero-content p {
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.75rem; /* 28px */
+            color: #d1d5db; /* text-gray-300 */
+            max-width: 42rem; /* 672px */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2rem; /* 32px */
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.75rem 2rem; /* 12px 32px */
+            border-radius: 0.5rem; /* 8px */
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (min-width: 768px) {
+            .hero-content h1 {
+                font-size: 3.75rem; /* 60px */
+                line-height: 1;
+            }
+            .hero-content p {
+                font-size: 1.25rem; /* 20px */
+                line-height: 1.75rem; /* 28px */
+            }
+        }
+
+        /* --- New Collage Section Styling --- */
+        .bio-section {
+            padding: 6rem 2rem;
+            background-color: #f9fafb; /* A light gray background */
+            color: #111827; /* Dark text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bio-container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
+
+        .bio-text {
+            max-width: 500px;
+            text-align: left;
+        }
+
+        .bio-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .bio-text p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        .collage-grid {
+            --grid-item-size: 120px;
+            --grid-gap: 16px;
+            display: grid;
+            grid-template-columns: repeat(3, var(--grid-item-size));
+            grid-template-rows: repeat(4, var(--grid-item-size));
+            gap: var(--grid-gap);
+            /* Calculate the total size of the grid for the background */
+            --grid-width: calc(3 * var(--grid-item-size) + 2 * var(--grid-gap));
+            --grid-height: calc(4 * var(--grid-item-size) + 3 * var(--grid-gap));
+        }
+
+        .collage-item {
+            background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop');
+            background-size: var(--grid-width) var(--grid-height);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+        }
+
+        .collage-item:hover {
+            transform: scale(1.05) translateZ(0); /* translateZ for performance */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            z-index: 10;
+        }
+
+        /* Positioning and shaping each grid piece */
+        #c-item-1 {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+            background-position: 0% 0%;
+            border-radius: 999px 0 0 999px;
+        }
+        #c-item-2 {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            background-position: 50% 0%;
+            border-radius: 0 999px 0 0;
+        }
+        #c-item-3 {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+            background-position: 100% 0%;
+            border-radius: 999px 0 0 0;
+        }
+        #c-item-4 {
+            grid-column: 1 / 2;
+            grid-row: 3 / 5;
+            background-position: 0% 100%;
+            border-radius: 999px 0 0 999px;
+        }
+        #c-item-5 {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            background-position: 50% 33.33%;
+        }
+        #c-item-6 {
+            grid-column: 3 / 4;
+            grid-row: 2 / 4;
+            background-position: 100% 50%;
+            border-radius: 0 999px 999px 0;
+        }
+        #c-item-7 {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+            background-position: 50% 66.66%;
+            border-radius: 999px;
+        }
+        #c-item-8 {
+            grid-column: 2 / 3;
+            grid-row: 4 / 5;
+            background-position: 50% 100%;
+            border-radius: 0 0 999px 999px;
+        }
+        #c-item-9 {
+            grid-column: 3 / 4;
+            grid-row: 4 / 5;
+            background-position: 100% 100%;
+            border-radius: 0 0 999px 0;
+        }
+        
+        /* Responsive adjustments for the collage */
+        @media (max-width: 980px) {
+            .bio-container {
+                flex-direction: column;
+                text-align: center;
+            }
+             .bio-text {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .collage-grid {
+                --grid-item-size: 80px;
+                --grid-gap: 10px;
+            }
+            .bio-text h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        
+        <!-- Background Image -->
+        <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1488972685288-c3315757c390?q=80&w=2070&auto=format&fit=crop');"></div>
+        
+        <!-- Dark Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- The interactive grid is generated by JavaScript and placed here -->
+        <div id="hero-grid-container"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1>
+                Alexander Vance
+            </h1>
+            <p>
+                A premier real estate director dedicated to curating exceptional properties and delivering unparalleled client experiences in the luxury market.
+            </p>
+            <a href="#portfolio" class="cta-button">
+                Explore Properties
+            </a>
+        </div>
+    </section>
+
+    <!-- New "About Me" Section with Image Collage -->
+    <section class="bio-section" id="about">
+        <div class="bio-container">
+            <div class="bio-text">
+                <h2>About Alexander</h2>
+                <p>
+                    With over a decade of experience navigating the complexities of the luxury real estate market, Alexander Vance has built a reputation on integrity, discretion, and an unwavering commitment to his clients. His innovative strategies and deep market knowledge ensure that every transaction is both seamless and successful. Alexander believes in building lasting relationships, making him a trusted advisor in the world of premier properties.
+                </p>
+            </div>
+            <div class="collage-grid">
+                <div class="collage-item" id="c-item-1"></div>
+                <div class="collage-item" id="c-item-2"></div>
+                <div class="collage-item" id="c-item-3"></div>
+                <div class="collage-item" id="c-item-4"></div>
+                <div class="collage-item" id="c-item-5"></div>
+                <div class="collage-item" id="c-item-6"></div>
+                <div class="collage-item" id="c-item-7"></div>
+                <div class="collage-item" id="c-item-8"></div>
+                <div class="collage-item" id="c-item-9"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const gridContainer = document.getElementById('hero-grid-container');
+        const squareSize = 40;
+        let numCols = 0;
+
+        function createGrid() {
+            gridContainer.innerHTML = '';
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            
+            const cols = Math.ceil(screenWidth / squareSize);
+            numCols = cols; // Store column count
+            const rows = Math.ceil(screenHeight / squareSize);
+            const totalSquares = cols * rows;
+
+            gridContainer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+
+            for (let i = 0; i < totalSquares; i++) {
+                const square = document.createElement('div');
+                square.classList.add('grid-square');
+                // Store the index on the element itself for easy access
+                square.dataset.index = i;
+                gridContainer.appendChild(square);
+            }
+        }
+
+        function glowSurroundingSquares(targetIndex) {
+            const allSquares = gridContainer.children;
+            const total = allSquares.length;
+            const cols = numCols;
+
+            // Define the 3x3 grid of indices relative to the target
+            const relativeIndices = [
+                -cols - 1, -cols, -cols + 1,
+                -1,         0,      +1,
+                cols - 1,  cols,  cols + 1
+            ];
+
+            relativeIndices.forEach(offset => {
+                const neighborIndex = targetIndex + offset;
+
+                // --- Boundary and Edge Checks ---
+                if (neighborIndex >= 0 && neighborIndex < total) {
+                    const isLeftEdge = (targetIndex % cols === 0);
+                    const isRightEdge = ((targetIndex + 1) % cols === 0);
+
+                    // Prevent wrapping from left to right edge
+                    if (isLeftEdge && (offset === -1 || offset === -cols - 1 || offset === cols - 1)) return;
+                    // Prevent wrapping from right to left edge
+                    if (isRightEdge && (offset === 1 || offset === -cols + 1 || offset === cols + 1)) return;
+
+                    const neighborSquare = allSquares[neighborIndex];
+                    // Check if the square exists and isn't already glowing to prevent multiple timeouts
+                    if (neighborSquare && !neighborSquare.classList.contains('glow')) {
+                        neighborSquare.classList.add('glow');
+                        setTimeout(() => {
+                            neighborSquare.classList.remove('glow');
+                        }, 800);
+                    }
+                }
+            });
+        }
+
+        gridContainer.addEventListener('mouseover', (event) => {
+            if (event.target.classList.contains('grid-square')) {
+                // Get the index from the data attribute and convert to a number
+                const targetIndex = parseInt(event.target.dataset.index, 10);
+                if (!isNaN(targetIndex)) {
+                    glowSurroundingSquares(targetIndex);
+                }
+            }
+        });
+        
+        window.addEventListener('resize', createGrid);
+        createGrid();
+    </script>
+
+</body>
+</html>
+
+
