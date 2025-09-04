@@ -20,10 +20,20 @@
             /* height: 200vh; */
         }
 
+        ::selection {
+          background: black;  /* custom highlight background */
+          color: #fff;          /* custom text color */
+        }
+
+        ::-moz-selection {
+          background: black;  
+          color: #fff;
+        }
+
         section{
             padding: 80px 40px;
-            position: sticky;
-            top: 0;
+            position: relative;
+            /* top: 0; */
             width: 100%;
             min-height: 100vh;
             
@@ -271,12 +281,12 @@
         
           /* --- Hero Section & Layout --- */
         .hero {
-            /* position: sticky;
-            top: 0; */
+            position: sticky;
+            top: 0;
             z-index: 10;
             /* top: 0;
             left: 0; */
-            height: 100vh;
+            min-height: 100vh;
             width: 100%;
             padding-bottom: 80px;
             display: flex;
@@ -448,7 +458,8 @@
         .about-section {
             background: white;
             color: black;
-            border-radius: 20px;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
             padding: 3rem 6rem;
             display: flex;
             justify-content: center;
@@ -569,6 +580,7 @@
         .section-description{
             margin-top: 1.4rem;
             margin-bottom: 3rem;
+            max-width: 1200px;
             line-height: 1;
             font-size: clamp(1rem, 5vw, 3rem);
         }
@@ -598,7 +610,7 @@
         .services-section{
             background: white;
             color: black;
-            border-radius: 20px;
+            /* border-radius: 20px; */
             padding: 3rem 6rem;
             display: flex;
             justify-content: center;
@@ -620,8 +632,259 @@
             z-index: 1;
         }
 
+        .services-section .title-container{
+            width: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4rem 6rem;    
+            top: 0;
+            background: white;
+            left: 0;
+            z-index: 99;
+        }
 
         .services-section .section-title{
             border-bottom: 1px solid rgba(14, 14, 14, 0.116);
             padding-bottom: 25px;
+            /* position: relative; */
+            /* color: var(--primary-color); */
+            /* background: white; */
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+
+        .services-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding-top: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            position: relative; /* To ensure content is above the grid */
+            z-index: 1;
+        }
+
+        .services-text {
+            flex: 1;
+            max-width: 48%;
+        }
+        
+        .services-text .subtitle {
+            font-size: 0.975rem;
+            font-weight: 600;
+            color: #ea580c; /* Orange color */
+            letter-spacing: 5px;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .services-text h2 {
+            font-size: clamp(2rem, 5vw + 1rem, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .services-text p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 2.5rem;
+        }
+        
+        .services-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .services-list li {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: #374151;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .services-list li::before {
+            content: '▶';
+            color: #ea580c;
+            margin-right: 1rem;
+            font-size: 0.75rem;
+        }
+
+        .services-section .services-container .services-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            flex: 1;
+            max-width: 48%;
+            /* max-height: 700px; */
+            /* background: black; */
+            position: relative;
+            z-index: 999;
+        }
+
+        .services-image img {
+            width: 100%;
+            /* height: 100%; */
+            aspect-ratio: 12/9;
+            border-radius: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.516);
+            position: relative;
+        }
+
+        /* Responsive adjustments for services section */
+        @media (max-width: 980px) {
+            .services-section{
+                padding: 3rem 3rem;
+            }
+            .services-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .services-section .title-container{
+                padding: 3rem;
+            }
+            .services-text, .services-image {
+                max-width: 100%;
+            }
+            .services-list li {
+                /* justify-content: center; */
+            }
+        }
+        
+         @media (max-width: 500px) {
+            .services-text h2 {
+                /* font-size: 2.5rem; */
+            }
+        }
+
+
+
+
+        /* --- New Portfolio Section Styling --- */
+        .portfolio-section {
+            background-color: white;
+            color: black;
+            padding: 6rem 0;
+            position: relative;
+            z-index: 13;
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 100px;;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .portfolio-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            max-width: 500px;
+            line-height: 1.4;
+        }
+        
+        .portfolio-header p {
+            font-size: clamp(1rem, 4vw, 1.125rem);
+            color: #636363;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+        
+        .portfolio-wrapper {
+            /* Height determines scroll duration. 400vh means it takes 4x viewport height to scroll past */
+            height: 410vh; 
+        }
+
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            /* height: 100vh; */
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            
+            width: 100%;
+            padding-top: 200px; 
+            overflow: hidden;
+        }
+        
+        .portfolio-track {
+            /* height: 100%; */
+            display: flex;
+            align-items: center;
+            padding-left: 400px;
+            padding-right: 400px;
+            /* Width is set by JS */
+        }
+
+        .portfolio-item {
+            flex-shrink: 0;
+            /* width: 30vw; */
+            height: 60vh;
+            aspect-ratio: 12/9;
+            margin: 0 1vw;
+            position: relative;
+        }
+
+        .portfolio-item video,
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.25rem;
+        }
+
+        .item-caption {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            background: rgba(0,0,0,0.6);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .final-section {
+             height: 100vh;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             text-align: center;
+             background-color: #f9fafb;
+             color: #111827;
+             z-index: 14;
+        }
+        .final-section h2 {
+            font-size: 3rem;
+        }
+
+
+
+        @media(max-width: 768px){
+            .portfolio-header{
+                flex-direction: column;
+            }
+
+            .portfolio-item {
+                height: 40vh;
+            }
+    }
+
+
+
+        
