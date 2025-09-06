@@ -17,9 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
    
 </head>
-<body>
-
-    
+    <body class="dark-theme">
             <header class="main-header">
                 <div class="logo"><img src="assets/img/RS-logo.png" alt=""></div>
                 <div class="menu-btn">
@@ -216,12 +214,15 @@
 
     <!-- New Portfolio Section with Sticky Scroll -->
     <section class="portfolio-section" id="portfolio">
-        <div class="portfolio-header">
-            <h2>Website creations and client projects</h2>
-            <p>An exclusive collection of premier listings, showcasing the pinnacle of luxury, design, and location. Each property is a testament to exceptional living.</p>
+        <div class="title-container">
+            <h4 class="section-title"><span>Projects</span> <span class="section-number">(03)</span></h4>
         </div>
         <div class="portfolio-wrapper">
             <div class="sticky-container">
+                <div class="portfolio-header">
+                <h2>Website creations and client projects</h2>
+                <p>An exclusive collection of premier listings, showcasing the pinnacle of luxury, design, and location. Each property is a testament to exceptional living.</p>
+            </div>
                 <div class="portfolio-track">
                     <div class="portfolio-item">
                         <video src="assets/video/video.mp4" autoplay loop muted></video>
@@ -229,7 +230,10 @@
                     </div>
                     <div class="portfolio-item">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Modern House Exterior">
-                        <div class="item-caption">Oceanview Modern</div>
+                        <div class="item-caption-container">
+                            <div class="item-caption">Oceanview Modern</div>
+                            <div class="item-caption">About Modern</div>
+                        </div>
                     </div>
                     <div class="portfolio-item">
                         <video src="assets/video/video.webm" autoplay loop muted></video>
@@ -237,19 +241,17 @@
                     </div>
                     <div class="portfolio-item">
                          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop" alt="Suburban Home">
-                         <div class="item-caption">The Glass House</div>
+                        <div class="item-caption-container">
+                            <div class="item-caption">The Glass House</div>
+                            <div class="item-caption">The House</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <section class="final-section" id="contact">
-        <div>
-            <h2>We are about to reach to the Bottom.</h2>
-            <!-- Contact form or details can go here -->
-        </div>
-    </section>
+
 
 
     <script>
@@ -277,6 +279,144 @@
             }
         });
     </script>
+
+    
+
+    <section class="expertise-section" id="special-section">
+        <!-- Top Section: Image, Socials, and Intro -->
+          <div class="title-container">
+            <h4 class="section-title"><span>FAQ</span> <span class="section-number">(04)</span></h4>
+        </div>
+        <div class="intro-container">
+            <div class="intro-left">
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="#" aria-label="Twitter"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.617l-5.21-6.817-6.045 6.817h-3.308l7.73-8.835-7.73-10.668h6.617l4.643 6.432 5.545-6.432z"/></svg></a>
+                    <a href="#" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg></a>
+                    <a href="#" aria-label="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                </div>
+                <div class="intro-image-wrapper">
+                    <img src="assets/img/Gemini_Generated_Image_4xgif14xgif14xgi - Copy.png" alt="A professional man in a discussion">
+                </div>
+            </div>
+            <div class="intro-right">
+                <h2>Trust in Expertise</h2>
+                <p>Honesty and transparency throughout the entire project are the prerequisites for success. It is crucial to define goals and possibilities right from the start. Only in this way can a functioning concept and a sustainable, long-term strategy be created for your real estate portfolio.</p>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-accordion">
+            <details class="faq-item">
+                <summary>How does the collaboration process work?</summary>
+                <div class="faq-answer">
+                    Our process begins with a deep-dive consultation to understand your goals. From there, we develop a bespoke strategy, handle all market analysis and negotiations, and provide transparent updates at every stage, ensuring a seamless experience from start to finish.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Why should we choose to work with you?</summary>
+                <div class="faq-answer">
+                    With a decade of specialized experience in the luxury market, we offer unparalleled market knowledge, a network of exclusive contacts, and a proven track record of securing optimal outcomes for our clients. We are not just agents; we are trusted advisors.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Why should we choose to work with you?</summary>
+                <div class="faq-answer">
+                    With a decade of specialized experience in the luxury market, we offer unparalleled market knowledge, a network of exclusive contacts, and a proven track record of securing optimal outcomes for our clients. We are not just agents; we are trusted advisors.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Why should we choose to work with you?</summary>
+                <div class="faq-answer">
+                    With a decade of specialized experience in the luxury market, we offer unparalleled market knowledge, a network of exclusive contacts, and a proven track record of securing optimal outcomes for our clients. We are not just agents; we are trusted advisors.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Why should we choose to work with you?</summary>
+                <div class="faq-answer">
+                    With a decade of specialized experience in the luxury market, we offer unparalleled market knowledge, a network of exclusive contacts, and a proven track record of securing optimal outcomes for our clients. We are not just agents; we are trusted advisors.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>What is 'synergistic marketing' for properties?</summary>
+                <div class="faq-answer">
+                    Synergistic marketing is our integrated approach, combining high-end digital campaigns, professional staging, exclusive print media, and targeted outreach to our private network. This ensures your property reaches the most qualified buyers, creating maximum impact and value.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Do you offer individual property valuation services?</summary>
+                <div class="faq-answer">
+                    Yes, we provide comprehensive, data-driven valuation services for individual properties. This is a crucial first step whether you are considering selling, buying, or simply wish to understand the current market value of your assets.
+                </div>
+            </details>
+        </div>
+
+
+        <div class="glitch-container">
+            <!-- The interactive grid is generated by JavaScript and placed here -->
+            <div class="hero-grid-container"></div>
+           <!-- This is the button you can copy -->
+        <a href="#" class="image-hover-link">
+            <span class="link-text">Choose to work</span>
+            <div class="hover-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Team collaboration" class="hover-image">
+            </div>
+            <span class="link-text">with me?</span>
+        </a>
+        </div>
+
+    </section>
+
+
+    <script>
+        // JavaScript to ensure only one FAQ item is open at a time
+        const allFaqItems = document.querySelectorAll('.faq-item');
+
+        allFaqItems.forEach(item => {
+            item.addEventListener('toggle', event => {
+                if (item.open) {
+                    allFaqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.open) {
+                            otherItem.open = false;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+
+<footer class="site-footer">
+        <hr class="footer-divider-top">
+        <div class="footer-main">
+            <div class="footer-logo">
+                <img src="assets/img/RS-logo.png" alt="">
+            </div>
+            <div class="footer-column">
+                <h4>Kontakt</h4>
+                <p>Based in 54295 Trier</p>
+                <a href="#">Kontakt aufnehmen</a>
+            </div>
+            <div class="footer-column">
+                <h4>Erreichbarkeit</h4>
+                <p>Mo & Fr. 8:00 - 18:00 Uhr</p>
+                <p>24/7 WhatsApp & Mail</p>
+            </div>
+            <div class="footer-column">
+                <h4>Rechtliches</h4>
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;2025, Rohit Singh | All Right Reserve | Associated with MoneyTree Reality Services Ltd..</p>
+        </div>
+    </footer>
+
+    
+
+   
 
       
 
