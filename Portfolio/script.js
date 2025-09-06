@@ -98,6 +98,31 @@ window.addEventListener('scroll', () => {
       });
     });
 
+
+
+    // New script for scroll-based theme change
+        const specialSection = document.getElementById('special-section');
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    // Add dark-theme class if section is intersecting (visible), otherwise remove it
+                    document.body.classList.toggle('dark-theme', entry.isIntersecting);
+                });
+            },
+            {
+                root: null, // observes intersections relative to the viewport
+                threshold: 0.1, // trigger when 10% of the element is visible
+            }
+        );
+
+        observer.observe(specialSection);
+
+
+
+
+
+
+
   
   
   
