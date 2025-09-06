@@ -162,6 +162,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            flex-direction: row;
             gap: 5px;
             /* font-size: 20px; */
             width: 100%;
@@ -268,7 +269,7 @@
             .header-section{
                 flex-direction: column;
                 padding: 40px;
-                padding-top: 80px;
+                padding-top: 100px;
             }
             .header-img{
                 width:100%;
@@ -277,6 +278,11 @@
             }
             .header-link{
                 align-items: center;
+                /* font-size: rem; */
+            }
+
+            .header-link .social-links{
+                margin-top: 10px;
             }
         }
         
@@ -661,51 +667,54 @@
         }
 
 
-        .services-container {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            padding-top: 200px;
+        .services-content-wrapper {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
             gap: 4rem;
-            position: relative; /* To ensure content is above the grid */
-            z-index: 1;
-        }
-
-        .services-text {
-            flex: 1;
-            max-width: 48%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 6rem; /* Space below sticky title */
         }
         
-        .services-text .subtitle {
+        .services-text-column {
+            flex: 1;
+            max-width: 48%;
+            width: 48%;
+        }
+
+        .service-item {
+             margin-bottom: 30vh; /* Creates space for scrolling */
+             min-height: 400px;
+        }
+        .service-item:last-child {
+            margin-bottom: 10vh;
+        }
+
+        .service-item .subtitle {
             font-size: 0.975rem;
             font-weight: 600;
             color: #ea580c; /* Orange color */
             letter-spacing: 5px;
             margin-bottom: 1.5rem;
-            position: relative;
         }
 
-        .services-text h2 {
-            font-size: clamp(2rem, 5vw + 1rem, 4.5rem);
+        .service-item h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
 
-        .services-text p {
+        .service-item p {
             font-size: 1.125rem;
             line-height: 1.8;
             color: #4b5563;
             margin-bottom: 2.5rem;
         }
-        
+
         .services-list {
             list-style: none;
             padding: 0;
         }
-        
+
         .services-list li {
             display: flex;
             align-items: center;
@@ -714,7 +723,7 @@
             margin-bottom: 1rem;
             font-weight: 500;
         }
-        
+
         .services-list li::before {
             content: '▶';
             color: #ea580c;
@@ -722,58 +731,91 @@
             font-size: 0.75rem;
         }
 
-        .services-section .services-container .services-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
+        .services-image-column {
             flex: 1;
             max-width: 48%;
-            /* max-height: 700px; */
-            /* background: black; */
-            position: relative;
-            z-index: 999;
-        }
-
-        .services-image img {
-            width: 100%;
-            /* height: 100%; */
-            aspect-ratio: 12/9;
-            border-radius: 0.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.516);
-            position: relative;
-        }
-
-        /* Responsive adjustments for services section */
-        @media (max-width: 980px) {
-            .services-section{
-                padding: 3rem 3rem;
-            }
-            .services-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .services-section .title-container{
-                padding: 3rem;
-            }
-            .services-text, .services-image {
-                max-width: 100%;
-            }
-            .services-list li {
-                /* justify-content: center; */
-            }
+            width: 48%;
+            position: sticky; /* This is the key for the effect */
+            top: 25vh; /* Adjust vertical position in viewport */
+            height: 50vh; /* Define a height for the sticky container */
+            overflow: hidden; /* Crucial for the reveal effect */
         }
         
-         @media (max-width: 700px) {
-            .services-text h2 {
-                /* font-size: 2.5rem; */
-            }
-
-            .services-section .services-container .services-image {
-                max-width: 100%;
-            }
+        .services-image-column img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.516);
+            transform: translateY(0); /* Start in position */
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1); /* Animate the transform property */
         }
 
+        .section-description{
+            margin-top: 1.4rem;
+            margin-bottom: 3rem;
+            max-width: 1200px;
+            line-height: 1;
+            font-size: clamp(1rem, 5vw, 3rem);
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 980px) {
+            .services-section {
+                padding: 3rem;
+            }
+            .services-section .title-container {
+                position: static; /* Remove sticky title on mobile */
+                padding: 0 0 3rem 0;
+            }
+             .services-content-wrapper {
+                flex-direction: column;
+                padding-top: 0;
+            }
+            .services-text-column, .services-image-column {
+                max-width: 100%;
+                width: 100%;
+                position: static; /* Remove sticky behavior */
+                height: auto;
+                margin-bottom: 3rem;
+                overflow: visible;
+            }
+            .service-item {
+                margin-bottom: 4rem;
+                min-height: auto;
+            }
+             .services-image-column {
+                 display: none; /* Hide the sticky column on mobile */
+             }
+
+             /* On mobile, we create a simple image-then-text flow */
+             .service-item::after {
+                content: '';
+                display: block;
+                width: 100%;
+                padding-bottom: 66.67%; /* 3:2 Aspect Ratio */
+                background-size: cover;
+                background-position: center;
+                border-radius: 0.5rem;
+                margin-top: 2rem;
+             }
+             .service-item[data-image="management"]::after {
+                 background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop');
+             }
+             .service-item[data-image="branding"]::after {
+                 background-image: url('https://media.istockphoto.com/id/1409298953/photo/real-estate-agents-shake-hands-after-the-signing-of-the-contract-agreement-is-complete.jpg?s=612x612&w=0&k=20&c=SFybbpGMB0wIoI0tJotFqptzAYK_mICVITNdQIXqnyc=');
+             }
+             .service-item[data-image="advertising"]::after {
+                 background-image: url('https://teja12.kuikr.com/is/a/c/655x525/gallery_images/original/cf5ca32dc7c18eb.gif');
+             }
+             .service-item[data-image="visibility"]::after {
+                 background-image: url('https://images.jdmagicbox.com/comp/bhubaneshwar/dc/0674px674.x674.100320170130.x6x7dc/catalogue/orimark-properties-sahid-nagar-bhubaneshwar-estate-agents-for-residential-rental-3tovu63.jpg');
+             }
+        }
 
 
 
@@ -916,8 +958,17 @@
                 gap: 0;
             }
 
+            .portfolio-wrapper {
+            /* Height determines scroll duration. 400vh means it takes 4x viewport height to scroll past */
+            height: 360vh; 
+        }
+
             .portfolio-item {
-                height: 40vh;
+                height:30vh;
+            }
+
+            .item-caption {
+                font-size: 0.8rem;
             }
             /* 
             .portfolio-track{
@@ -1114,7 +1165,7 @@
                 flex-direction: column;
             }
             .faq-accordion {
-                padding: 0 1rem;
+                /* padding: 0 0.5rem; */
             }
 
             .intro-left .social-links{
@@ -1133,7 +1184,7 @@
                 align-items: center;
             }
             .faq-accordion {
-                padding: 0 4rem;
+                padding: 0 2rem;
             }
         }
 
